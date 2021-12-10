@@ -8,15 +8,16 @@ function AddMenu() {
     const [price, setprice] = useState("")
     const [category, setcategory] = useState("")
     const [quantity, setquantity] = useState("")
-    const [categorydata, setcategorydata] = useState(["Neapolitan Pizza",
-    "Chicago Pizza",
-    "New York-Style Pizza",
-    "Sicilian Pizza",
-    "Greek Pizza",
-    "California Pizza",
-    "Detroit Pizza",
-    "St. Louis Pizza",
-    "Italian Pizza"])
+    const [categorydata, setcategorydata] = useState([
+        "Samsung TV",
+        "Xiaomi Mi TV",
+        "Sony TV",
+        "LG TV",
+        "Haier TV",
+        "Vu TV",
+        "Videocon TV"
+        
+    ])
 
     const handler = (e) => {
         var id = e.target.id
@@ -59,7 +60,9 @@ function AddMenu() {
                     "...data... " +
                     "--AaB03x--",
                 "Accept": "application/json",
-                "type": "formData"
+                "type": "formData",
+                "Authentication":`Bearer ${localStorage.getItem('_token')}`
+                
             }
         }
         axios.post('http://localhost:8899/addmenu', formData, config).then(
@@ -78,8 +81,8 @@ function AddMenu() {
     }
 
     return (
-        <Container style={{ padding: "20px", marginBottom: "20px" }}>
-            <Form style={{ padding: "50px", border: "2px solid black", width: "50%", marginLeft: "23%", marginBottom: "30px" }} onSubmit={submit} encType="multipart/form-data">
+        <div style={{ padding: "20px", marginBottom: "20px",backgroundImage:"url('../Images/background1.jpg')",backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center" }}>
+            <Form style={{ padding: "50px", border: "2px solid black", width: "50%", marginLeft: "23%", marginBottom: "30px" ,backgroundImage:"url('../Images/backgroundregis.jpg')",backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center"}} onSubmit={submit} encType="multipart/form-data">
                 <h1><u>Add Item</u></h1>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
@@ -121,7 +124,7 @@ function AddMenu() {
                     </Button>
                 </div>
             </Form>
-        </Container>
+        </div>
     )
 }
 

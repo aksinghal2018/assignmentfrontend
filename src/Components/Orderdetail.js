@@ -14,10 +14,10 @@ function Orderdetail() {
         setdetail(encryptStorage.getItem('orderdetail').data)
     }, [])
     return (
-        <Container>
+        <div style={{backgroundImage:"url('../Images/background1.jpg')",backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center",height:"560px",color:"white",padding:"20px"}}>
             <h1>Order Details </h1>
             <h1 className="text-danger">Status : {encryptStorage.getItem('orderdetail').status}</h1>
-            <Table striped bordered hover>
+            <Table striped bordered hover style={{backgroundImage:"url('../Images/cartbackground.png')",backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center"}} className="changefont">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -39,8 +39,8 @@ function Orderdetail() {
             </Table>
             <Row>
                 <Col>
-                    <p>Total: {totalbalance} RS</p></Col></Row>
-        </Container>
+                    <p className="changefont" style={{color:"white"}}>Total: {totalbalance} RS</p></Col></Row>
+        </div>
     )
 }
 

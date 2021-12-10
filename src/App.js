@@ -4,18 +4,17 @@ import {
   Route
 } from "react-router-dom";
 import Aboutus from "./Components/Aboutus";
-import AddMenu from "./Components/AddMenu";
-import Cartcomponent from "./Components/Cartcomponent";
 import Dashboard from "./Components/Dashboard";
 import Footer from "./Components/Footer";
-import Historyorder from "./Components/Historyorder";
+import Forgetpassword from "./Components/Forgetpassword";
 import Home from "./Components/Home";
+import InvoiceComponent from "./Components/InvoiceComponent";
 import Login from "./Components/Login";
 import Logout from "./Components/Logout";
-import MenuComponent from "./Components/MenuComponent";
 import Navbar from "./Components/Navbar";
-import Orderdetail from "./Components/Orderdetail";
-import Register from "./Components/Register";
+import Registernew from "./Components/Registernew";
+import Settingcomponent from "./Components/Settingcomponent";
+import Updatecompany from "./Components/Updatecompany";
 
 function App() {
   return (
@@ -30,7 +29,7 @@ function App() {
             <Login />
           </Route>
           <Route path="/register">
-            <Register />
+            <Registernew />
           </Route>
           <Route path="/dashboard">
             <Dashboard />
@@ -38,20 +37,17 @@ function App() {
           <Route path="/logout">
             <Logout />
           </Route>
-          <Route path="/addmenu">
-            <AddMenu />
+          <Route path="/invoicedata">
+            <InvoiceComponent />
           </Route>
-          <Route path="/menu">
-            <MenuComponent />
+          <Route path="/setting">
+            <Settingcomponent />
           </Route>
-          <Route path="/cart">
-            <Cartcomponent />
+          <Route path="/updatecompany">
+            <Updatecompany />
           </Route>
-          <Route path="/historycart">
-            <Historyorder />
-          </Route>
-          <Route path="/orderdetail">
-            <Orderdetail />
+          <Route path="/forgetpassword">
+            <Forgetpassword />
           </Route>
           <Route path="/">
             <Home />

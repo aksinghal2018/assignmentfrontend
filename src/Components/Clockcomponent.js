@@ -6,8 +6,8 @@ function Clockcomponent() {
         setInterval(() => setDateState(new Date()), 30000);
       }, []);
     return (
-        <div style={{display:'flex'}}>
-                 <h4 style={{marginRight:"20px"}}>
+        <div style={{display:'flex',marginTop:"20px"}}>
+                 <h4 style={{marginRight:"20px"}} className="changefont">
                 {' '}
                 {dateState.toLocaleDateString('en-GB', {
                     day: 'numeric',
@@ -15,7 +15,7 @@ function Clockcomponent() {
                     year: 'numeric',
                 })}
             </h4>
-            <h4>
+            <h4 className="changefont">
                 {dateState.toLocaleString('en-US', {
                     hour: 'numeric',
                     minute: 'numeric',

@@ -5,59 +5,57 @@ import {
 import { encryptStorage } from '../config/Encrypt'
 import { useState, useEffect } from 'react';
 import Clockcomponent from './Clockcomponent';
-import { Badge } from 'react-bootstrap';
+import { Badge,Image } from 'react-bootstrap';
+import '../index.css'
+import {useSelector} from 'react-redux'
 function Navbar() {
   const [cart, setcart] = useState([])
   const [state, setstate] = useState("")
+  const count = useSelector(state => state.count)
   useEffect(() => {
 
     if(encryptStorage.getItem('cart')==undefined){
       encryptStorage.setItem('cart',[])
     }
     setcart(encryptStorage.getItem('cart'))
-    console.log(encryptStorage.getItem('user'))
+   // console.log(encryptStorage.getItem('user'))
   }, [])
 
   
   const dashboardcomponent = encryptStorage.getItem('user') != undefined ? <>
 
-    <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none" }}>
-      <Link to={`/dashboard`} style={{ color: "white", fontSize: "20px", textDecoration: "none" }}>Dashboard</Link>
+    <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none",marginTop:"20px" }}>
+      <Link to={`/dashboard`} style={{   textDecoration: "none" }} className="changefont">Dashboard</Link>
     </li>
-    <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none" }}>
-      <Link to="/menu" style={{ color: "white", fontSize: "20px", textDecoration: "none" }}>Menu</Link>
+    <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none",marginTop:"20px" }}>
+      <Link to="/invoicedata" style={{   textDecoration: "none" }} className="changefont">Invoices </Link>
     </li>
-    <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none" }}>
-      <Link to="/addmenu" style={{ color: "white", fontSize: "20px", textDecoration: "none" }}>Add Menu</Link>
+    <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none",marginTop:"20px" }}>
+      <Link to="/setting" style={{   textDecoration: "none" }} className="changefont">Settings </Link>
     </li>
-    <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none" }}>
-      <Link to="/logout" style={{ color: "white", fontSize: "20px", textDecoration: "none" }}>Logout</Link>
-    </li>
-    <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none" }}>
-      <Link to="/cart" style={{ color: "white", fontSize: "20px", textDecoration: "none" }}>Cart <Badge bg="secondary">{cart.length}</Badge></Link>
-    </li>
-    <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none" }}>
-      <Link to="/historycart" style={{ color: "white", fontSize: "20px", textDecoration: "none" }}>History Cart </Link>
+    <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none",marginTop:"20px" }}>
+      <Link to="/logout" style={{   textDecoration: "none" }} className="changefont">Logout</Link>
     </li>
     </> : <></>
 
-  const logincomponent = encryptStorage.getItem('user') != undefined ? <></>:<><li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none" }}>
-  <Link to="/login" style={{ color: "white", fontSize: "20px", textDecoration: "none" }}>Login</Link>
-</li></>
+  const logincomponent = encryptStorage.getItem('user') != undefined ? <></>:<><li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none",marginTop:"20px"}} className="changefont">
+  <Link to="/login" style={{   textDecoration: "none" }} className="changefont">Login</Link>
+</li><li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none",marginTop:"20px" }}>
+          <Link to="/register" style={{   textDecoration: "none" }}className="changefont">Register</Link>
+        </li></>
 
   return (
-    <nav style={{ borderBottom: "2px solid black", backgroundColor: "blue" }} >
+    <nav style={{ borderBottom: "2px solid black", backgroundColor: "lightblue" }} >
       <ul style={{ paddingTop: "7px", display: "flex", paddingRight: "20px" }}>
-        <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none" }}>
-          <Link to="/" style={{ color: "white", fontSize: "20px", textDecoration: "none" }}>Home</Link>
+
+        <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none"}}>
+          <Link to="/" style={{   textDecoration: "none", }} className="changefont"><Image src="../Images/logo.png" alt="pizzalogo" style={{width:"60px",height:"60px"}} /></Link>
         </li>
         {dashboardcomponent}
         {logincomponent}
-        <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none" }}>
-          <Link to="/register" style={{ color: "white", fontSize: "20px", textDecoration: "none" }}>Register</Link>
-        </li>
-        <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none" }}>
-          <Link to="/about" style={{ color: "white", fontSize: "20px", textDecoration: "none" }}>About</Link>
+        
+        <li style={{ marginLeft: "7px", marginRight: "7px", listStyleType: "none",marginTop:"20px" }}>
+          <Link to="/about" style={{   textDecoration: "none" }} className="changefont"> About</Link>
         </li>
 
         <div style={{ marginLeft: 'auto', color: "white" }}>

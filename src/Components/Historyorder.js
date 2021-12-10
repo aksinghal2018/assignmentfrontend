@@ -10,10 +10,12 @@ function Historyorder() {
     useEffect(() => {
         const id=encryptStorage.getItem('user')[0]._id
         setiddata(id)
-        console.log(id)
-        axios.post('http://localhost:8899/orderhistory',{id:id}).then(
+        ///console.log(id)
+        axios.post('http://localhost:8899/orderhistory',{id:id},{
+            headers:{"Authentication":`Bearer ${localStorage.getItem('_token')}`}
+        }).then(
             data=>{
-                console.log(data.data)
+                //console.log(data.data)
                 sethistorydata(data.data)
             }
         )
@@ -38,9 +40,9 @@ function Historyorder() {
         window.location.replace('/orderdetail')
     }
     return (
-        <Container>
-            <h1 style={{margin:"20px"}}>Order History</h1>
-            <Table striped bordered hover>
+        <div style={{backgroundImage:"url('../Images/background1.jpg')",backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center",height:"560px",color:"white",padding:"20px"}}>
+            <h1 className="changefont" style={{color:"white"}}>Order History</h1>
+            <Table striped bordered hover style={{backgroundImage:"url('../Images/cartbackground.png')",backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center"}} className="changefont">
   <thead>
     <tr>
       <th>#</th>
@@ -59,7 +61,7 @@ function Historyorder() {
     }
   </tbody>
 </Table>
-        </Container>
+        </div>
     )
 }
 
